@@ -1,0 +1,3 @@
+name = Available Updates D7
+description = Returns all available updates as json for a GET request
+core = 7.x

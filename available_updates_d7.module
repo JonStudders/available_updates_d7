@@ -1,0 +1,34 @@
+<?php
+
+/**
+* @file
+* Returns all available updates as json for a GET request
+*/
+
+require_once DRUPAL_ROOT . '/modules/update/update.module';
+require_once DRUPAL_ROOT . '/modules/update/update.compare.inc';
+
+function available_updates_d7_menu() {
+  $items = array();
+
+  // The path that the endpoint will be registered to
+  $items['available_updates_d7.json'] = array(
+
+    // The name of the function called when the path is accessed
+    'page callback' => 'available_updates_d7_page_callback',
+
+    // Set this value to TRUE to allow access to any user
+    'access callback' => TRUE,
+
+    // Declare this as a simple registered path
+    'type' => MENU_CALLBACK,
+  );
+
+  // Return the $items array to register the path
+  return $items;
+}
+function available_updates_d7_page_callback() {
+  $available = update_get_available(TRUE);
+  $new = update_calculate_project_data($available);
+  return drupal_json_output($new);
+}
