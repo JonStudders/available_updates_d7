@@ -3,5 +3,5 @@
 
 Creates an endpoint which returns all available updates.
 
-No intention to allow for Drupal 8/9 use https://www.drupal.org/project/available_updates instead.
+No intention to allow for Drupal 8/9 please use https://www.drupal.org/project/available_updates instead.
 
